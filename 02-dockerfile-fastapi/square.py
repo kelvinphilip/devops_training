@@ -1,7 +1,6 @@
 import os
 import uvicorn
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -13,14 +12,16 @@ async def root():
     return {"message": "Hello from Square API"}
 
 # +--------------------------------------------------------------------------------------------------+#
-# Healthcheck
+# API endpoint example without any params
+# GET API endpoint for healthcheck
 # +--------------------------------------------------------------------------------------------------+#
 @app.get("/health")
 async def read_health():
     return {"health": "good"}
 
 # +--------------------------------------------------------------------------------------------------+#
-# API Endpoint to calculate square of a x
+# API Endpoint Path Parameter Example
+# GET API endpoint to calculate square of a x
 # +--------------------------------------------------------------------------------------------------+#
 @app.get("/square/{x}")
 async def get_square(x:int) -> dict:
