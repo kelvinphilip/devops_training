@@ -22,7 +22,7 @@ async def read_health():
 # +--------------------------------------------------------------------------------------------------+#
 # API Endpoint to calculate square of a x
 # +--------------------------------------------------------------------------------------------------+#
-@app.get("/square")
+@app.get("/square/{x}")
 async def get_square(x:int) -> dict:
     status = True
     squarenumber = (x ** 2)
