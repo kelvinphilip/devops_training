@@ -5,6 +5,7 @@ def get_square(x:int) -> dict:
         number = int(x)
     except Exception as e:
         status = False
+        print(f"FATAL :: {e}")
     finally:
         if isinstance(number, int):
             squarenumber = (number ** 2)
