@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopstraining-app
+  namespace: devopstraining
+  labels:
+    app: devopstraining-app
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: devopstraining-app
+  template:
+    metadata:
+      labels:
+        app: devopstraining-app
+    spec:
+      containers:
+        - name: devopstraining-app
+          image: sum:0.0.1
+          resources:
+            requests:
+              memory: "75Mi"
+              cpu: "100m"
+            limits:
+              memory: "150Mi"
+              cpu: "200m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8800
+            initialDelaySeconds: 30
+            timeoutSeconds: 60
+            periodSeconds: 90
+            failureThreshold: 2
+          ports:
+            - containerPort: 8800
+          command: ["python3"]
+          args: ["/app/sum.py"]
+          imagePullPolicy: Never
