@@ -4,6 +4,12 @@
 ```bash
 kubectl.exe -n devopstraining apply -f square-pod.yaml
 ```
+
+## Check Pod
+```bash
+kubectl.exe -n devopstraining get pod
+```
+
 ## Expose Application
 ```bash
 kubectl.exe -n devopstraining expose pod square --type=LoadBalancer --name=square-service
