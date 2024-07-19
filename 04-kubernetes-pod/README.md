@@ -17,3 +17,9 @@ kubectl.exe -n devopstraining expose pod square --type=LoadBalancer --name=squar
 
 ## Accessing the Application
 - You should be able to now access the API at http://localhost:8800/docs
+
+
+## Check Logs
+```bash
+kubectl.exe -n devopstraining logs -f -lapp=square --all-containers --prefix --timestamps --since=30m
+```
