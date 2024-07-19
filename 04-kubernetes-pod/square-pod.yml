@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: square
+spec:
+  containers:
+  - name: square
+    image: square:0.0.7
+    ports:
+    - containerPort: 8800
