@@ -2,7 +2,7 @@
 
 ## Create Pod
 ```bash
-kubectl.exe -n devopstraining apply -f square-pod.yaml
+kubectl.exe -n devopstraining apply -f square-pod.yml
 ```
 
 ## Check Pod

@@ -6,7 +6,7 @@ metadata:
   labels:
     app: devopstraining-app
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -21,7 +21,7 @@ spec:
         app: devopstraining-app
     spec:
       containers:
-        - name: devopstraining-app
+        - name: sum
           image: sum:0.0.1
           resources:
             requests:
