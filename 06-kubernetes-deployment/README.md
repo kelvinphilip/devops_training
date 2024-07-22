@@ -10,6 +10,11 @@ kubectl.exe -n devopstraining apply -f devops-app-deployment.yml
 kubectl.exe -n devopstraining get deployment
 ```
 
+## Scale Replicas
+```bash
+kubectl.exe -n devopstraining scale deployment devopstraining-app --replicas=5
+```
+
 ## Expose Application
 ```bash
 kubectl.exe -n devopstraining expose deployment devopstraining-app --type=LoadBalancer --name=devopstraining-service
