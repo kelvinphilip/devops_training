@@ -25,6 +25,9 @@ class Client:
     def api_check_health(self, endpoint:str="/health") -> dict:
         return self.api_get_request(url=self.API_URL, headers=self.API_HEADERS, endpoint=endpoint)
 
+    def get_square(self, number:int, endpoint:str="/square") -> dict:
+        return self.api_get_request(url=self.API_URL, headers=self.API_HEADERS, endpoint=f"{endpoint}/{number}")
+
     def api_get_request(self, url:str, headers:dict, endpoint:str, showresponse:bool=False) -> dict:
         data = {'status':True}
         response = Response()
@@ -73,4 +76,7 @@ class Client:
 if __name__ == "__main__":
     client = Client()
     responsedata = client.api_check_health()
-    pprint(responsedata)
+    if responsedata['status']:
+        logger.success("API is UP and RUNNING")
+        responsedata = client.get_square(number=4)
+        pprint(responsedata)

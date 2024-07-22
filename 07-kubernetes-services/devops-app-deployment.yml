@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: devopstraining-app
-          image: sum:0.0.1
+          image: square:0.0.7
           resources:
             requests:
               memory: "75Mi"
@@ -41,5 +41,5 @@ spec:
           ports:
             - containerPort: 8800
           command: ["python3"]
-          args: ["/app/sum.py"]
+          args: ["/app/square.py"]
           imagePullPolicy: Never
